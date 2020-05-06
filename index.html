@@ -23,25 +23,45 @@
     }
 
     img {
-      margin: 0 auto;
+      margin: auto;
+      border-radius: 100%;
+      width: 100px;
+      padding: 6px;
       text-align: center;
+      vertical-align: middle;
+    }
+
+    p {
+      font-size: 12px;
+      font-family: Sans-serif;
+      color: #fff;
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    .all {
+      display: flex;
+      flex-direction: column;
       position: absolute;
       left: 50%;
-      top: 20%;
+      top: 25%;
       transform: translate(-50%, 0%);
+    }
+
+    .co {
+      margin: 0 auto;
       border-radius: 50%;
+      border: 2px solid #fff;
     }
 
     .spinner {
       margin: 0 auto;
-      width: 50px;
-      height: 40px;
+      width: 500px;
+      /*50*/
+      height: 60px;
       text-align: center;
-      font-size: 10px;
-      position: absolute;
-      left: 50%;
-      top: 45%;
-      transform: translate(-50%, 0%);
+      font-size: 12px;
+      margin-top: 40px;
     }
 
     .spinner>div {
@@ -105,22 +125,44 @@
 </head>
 
 <body scrolling="no">
-
-  <div class="spinner">
-    <div class="rect1"></div>
-    <div class="rect2"></div>
-    <div class="rect3"></div>
-    <div class="rect4"></div>
-    <div class="rect5"></div>
-  </div>
-  <div>
-    <img src="https://avaimg.nosdn.127.net/img/L2JPbS83QjFuWWsra2FVY0pya29CLytMSUNldGxIRTVvaEpwOGgvZXo1WXdNZ3dub2I4SjBRPT0.jpg?imageView&thumbnail=128x128&quality=90&type=jpg">
+  <div class="all">
+    <div class="co">
+      <img src="https://avaimg.nosdn.127.net/img/L2JPbS83QjFuWWsra2FVY0pya29CLytMSUNldGxIRTVvaEpwOGgvZXo1WXdNZ3dub2I4SjBRPT0.jpg?imageView&thumbnail=128x128&quality=90&type=jpg">
+    </div>
+    <div class="spinner">
+      <div class="rect1"></div>
+      <div class="rect2"></div>
+      <div class="rect3"></div>
+      <div class="rect4"></div>
+      <div class="rect5"></div>
+      <br>
+      <p>L o a d i n g . . . <span id="Time">3</span></p>
+      <p id="phone"></p>
+    </div>
   </div>
 
   <script>
-    setTimeout("javascript:location.href='https://joyanw.lofter.com/'", 3000);
-  </script>
+    function display_alert() {
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        alert("手机浏览效果不佳，建议使用电脑访问")
+      }
+    }
 
+    function countDown() {
+      var time = document.getElementById("Time");
+      if (time.innerHTML == 0) {
+        window.location.href = "https://joyanw.lofter.com/";
+      } else {
+        time.innerHTML = time.innerHTML - 1;
+      }
+    }
+    //1000毫秒调用一次
+    //window.setInterval("countDown()", 1000);
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      document.getElementById('phone').innerHTML = '手机浏览效果不佳，建议使用电脑访问'
+    }
+  </script>
 
 </body>
 
