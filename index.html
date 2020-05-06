@@ -16,7 +16,13 @@
       s.parentNode.insertBefore(hm, s);
     })();
   </script>
-
+  <script>
+    function display_alert() {
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        alert("手机浏览效果不佳，建议使用电脑访问")
+      }
+    }
+  </script>
   <style media="screen">
     body {
       background-color: #2980b9;
@@ -143,12 +149,6 @@
   </div>
 
   <script>
-    function display_alert() {
-      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        alert("手机浏览效果不佳，建议使用电脑访问")
-      }
-    }
-
     function countDown() {
       var time = document.getElementById("Time");
       if (time.innerHTML == 0) {
@@ -158,7 +158,7 @@
       }
     }
     //1000毫秒调用一次
-    window.setInterval("countDown()", 1000);
+    //window.setInterval("countDown()", 1000);
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
       document.getElementById('phone').innerHTML = '手机浏览效果不佳，建议使用电脑访问'
